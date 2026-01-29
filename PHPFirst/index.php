@@ -10,6 +10,7 @@
         <label for="text">TEXT: </label><input id="text" name="text" type="text">
         <label for="range">RANGE: </label><input id="range" name="range" type="range">
         <label for="checkbox">CHECK: </label><input id="checkbox" name="checkbox" type="checkbox">
+        <input type="submit">
     </form>
  </body>
  </html>
