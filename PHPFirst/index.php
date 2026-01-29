@@ -13,6 +13,7 @@
         <label for="radio1">RADIO 1:</label><input id="radio1" name="radio" type="radio" value="1">
         <label for="radio2">RADIO 2:</label><input id="radio2" name="radio" type="radio" value="2">
         <input type="submit">
+        <p>test awh</p>
     </form>
  </body>
  </html>
