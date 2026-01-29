@@ -9,6 +9,7 @@
     <form action="inputs.php" method="post">
         <label for="text">TEXT: </label><input id="text" name="text" type="text">
         <label for="range">RANGE: </label><input id="range" name="range" type="range">
+        <label for="checkbox">CHECK: </label><input id="checkbox" name="checkbox" type="checkbox">
     </form>
  </body>
  </html>
