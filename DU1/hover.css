@@ -1,0 +1,71 @@
+#size{
+    width: 15%;
+    padding: 5px 10px;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    border: solid 1px black;
+    border-radius: 4px;
+}
+#size:hover{
+    width: 17%;
+}
+#size:focus{
+    width: 20%;
+    padding: 8px 20px;
+    border-radius: 8px;
+}
+div label{
+    margin: 0px 15px;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    cursor: pointer;
+}
+
+input[type="radio"]{
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    accent-color: #545268;
+    cursor: pointer;
+}
+input[type="radio"]:hover{
+    scale: 130%;
+    accent-color: #616f8d
+}
+input[type="radio"]:checked{
+    scale: 110%;
+}
+input[type="radio"]:hover + label{
+    letter-spacing: 0.5px;
+    margin-left: 20px;
+}
+input[type="radio"]:checked + label{
+    color: #545268;
+    font-weight: bolder;
+}
+
+input[type="checkbox"]{
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    accent-color: #545268;
+    cursor: pointer;
+}
+input[type="checkbox"]:hover{
+    scale: 130%;
+    accent-color: #616f8d;
+}
+input[type="checkbox"]:checked{
+    scale: 110%;
+}
+input[type="checkbox"]:hover + label{
+    letter-spacing: 0.5px;
+    margin-left: 20px;
+}
+input[type="checkbox"]:checked + label{
+    color: #545268;
+    font-weight: bolder;
+}
+
+button:hover{
+    scale: 110%;
+    background-color: #434858;
+}
+a:hover{
+    scale: 110%;
+    background-color: #434858;
+}

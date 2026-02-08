@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="userOutput.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="hover.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Cena vaší kuchyňské linky</h1>
-    <hr>
+    <header>
+        <h1>Cena vaší kuchyňské linky</h1>
+    </header>
     <div>
         <h2>Podrobnosti</h2>
     <?php
@@ -36,15 +40,15 @@
         switch ($_POST["material"]){
             case "laminate": 
                 $price += (2000*$size);
-                echo " (+ ". 2000*$size." Kč - 2000 Kč * ".$size."m )";
+                echo " (+ ". 2000*$size." Kč)";
                 break;
             case "wood": 
                 $price += (4000*$size);
-                echo " (+ ". 4000*$size." Kč - 4000 Kč * ".$size."m )";
+                echo " (+ ". 4000*$size." Kč)";
                 break;
             case "stone": 
                 $price += (6000*$size);
-                echo " (+ ". 6000*$size." Kč - 6000 Kč * ".$size."m )";
+                echo " (+ ". 6000*$size." Kč)";
                 break;
         }
         echo "<br>Cabinet type: ".ucfirst($_POST["cabtype"]);
@@ -102,5 +106,8 @@
         echo "<br><hr><b>Celková cena: ".$price." Kč</b>";
     ?>
     </div>
+    <section id="submitDiv">
+        <a href="index.php">Zpět</a>
+    </section>
 </body>
 </html>
