@@ -8,7 +8,11 @@
 <body>
     <?php
     function loginCheck($currUsr, $currPass): bool{
- 
+        session_start();
+        $user = new User();
+        $user->setUser("User Name", $currUsr, $currPass, "1");
+        $_SESSION["user"] = serialize($user);
+        $_SESSION["isLoggedIn"] = true;
         return true;
     }
     if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST["emailLogin"]) && !empty($_POST["passwordLogin"])){
