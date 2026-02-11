@@ -10,13 +10,9 @@
     session_start();
     include "../DU2/comps/staticdata.php";
     function loginCheck($currUsr, $currPass): bool{
-        $user = new User();
-        $user->setUser("User Name", $currUsr, $currPass, 1);
-        $_SESSION["user"] = serialize($user);
-        $_SESSION["isLoggedIn"] = true;
         return true;
     }
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST["emailLogin"]) && !empty($_POST["passwordLogin"])){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!empty($_POST["emailLogin"]) && !empty($_POST["passwordLogin"])){
             $canLog = loginCheck($_POST["emailLogin"], $_POST["passwordLogin"]);
             if ($canLog){

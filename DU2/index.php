@@ -8,14 +8,16 @@
 <body>
     <?php
         session_start();
+        $_SESSION["id"] = 0;
         include "../DU2/comps/header.php";
         include "../DU2/comps/staticdata.php";
-        if (isset($_SESSION["user"])) {
-            $user = unserialize($_SESSION["user"]);
-            echo "Name: " . $user->name . "<br>";
-            echo "Email: " . $user->email . "<br>";
-            echo "Passwd: " . $user->password . "<br>";
-            echo "ID: " . $user->usrid . "<br>";
+        if (isset($_SESSION["admin@web.com"]) && $_SESSION["isLoggedIn"] === 1) {
+            echo "<h5>Logged in user data</h5><ul>";
+            $user = unserialize($_SESSION["admin@web.com"]);
+            echo "<li>Name: " . $user->name . "</li>";
+            echo "<li>Email: " . $user->email . "</li>";
+            echo "<li>Passwd: " . $user->password . "</li>";
+            echo "<li>ID: " . $user->usrid . "</li></ul>";
         }
     ?>
     <section>
