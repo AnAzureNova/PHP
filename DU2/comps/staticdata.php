@@ -12,6 +12,8 @@ class User {
     $this->perms = $perms;
   }
 }
+
+//default admin account
 $admin = new User();
 $admin->setUser("admin", "admin@mail.com", "admin123", "admin");
 $userString = "user.admin";

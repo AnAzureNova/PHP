@@ -8,14 +8,16 @@
 <body>
     <?php
     session_start();
-    include "../DU2/comps/staticdata.php";
+    include "../DU2/comps/staticdata.php"; //user class
+
+    //Check if user exists
     function loginCheck($currUsr, $currPass): bool{
-        $userKey = "user.".$currUsr;
-        if (isset($_SESSION[$userKey])) {
+        $userKey = "user.".$currUsr; //saves current username in session user format
+        if (isset($_SESSION[$userKey])) { //checks if the same user is in session
             $user = unserialize($_SESSION[$userKey]);
-            if ($user->password === $currPass) {
+            if ($user->password === $currPass) { //grabs password and checks with the entered password
                 $_SESSION["isLoggedIn"] = 1;
-                $_SESSION["currentuser"] = $_SESSION[$userKey];
+                $_SESSION["currentuser"] = $_SESSION[$userKey]; //saves the found user into currentuser
                 return true;
             }
             else{
@@ -29,15 +31,18 @@
         }
     }
 
+    //On form submittion
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (!empty($_POST["userLogin"]) && !empty($_POST["passwordLogin"])){
+        if (!empty($_POST["userLogin"]) && !empty($_POST["passwordLogin"])){ //check if all inputs have data - failsafe
             $canLog = loginCheck($_POST["userLogin"], $_POST["passwordLogin"]);
-            if ($canLog){
+            if ($canLog){ //true if user exists in session and if the users password is correct
                 header("Location: index.php");
             }
         }
     }
     ?>
+
+
     <div>
         <h1>LOGIN</h1>
         <form method="post" action="">

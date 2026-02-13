@@ -8,18 +8,24 @@
 <body>
     <?php
     session_start();
-    include "../DU2/comps/staticdata.php";
+    include "../DU2/comps/staticdata.php"; //user class
+
+    //Register user
     function registerUser($currName, $currMail, $currPass): void{
+        //add new object
         $user = new User();
         $user->setUser($currName, $currMail, $currPass, "default");
-        $userString = "user.".$currName;
+        $userString = "user.".$currName; //sys name format: user.namehere
         $_SESSION[$userString] = serialize($user);
-        $_SESSION["isLoggedIn"] = 0;
+        $_SESSION["isLoggedIn"] = 0; //failsafe
         header("Location: index.php");
     }
+
+    //On form submittion
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (!empty($_POST["usernameRegister"]) && !empty($_POST["emailRegister"]) && !empty($_POST["passwordRegister"]) && !empty($_POST["passwordRetype"])){
-            if ($_POST["passwordRegister"] === $_POST["passwordRetype"]){
+        if (!empty($_POST["usernameRegister"]) && !empty($_POST["emailRegister"]) && !empty($_POST["passwordRegister"]) && !empty($_POST["passwordRetype"])){ //check if all inputs have data - failsafe
+            if ($_POST["passwordRegister"] === $_POST["passwordRetype"]){ //check passwords
+                //Register user
                 registerUser($_POST["usernameRegister"], $_POST["emailRegister"], $_POST["passwordRegister"]);
             }
             else{
@@ -28,6 +34,7 @@
         }
     }
     ?>
+
     <div>
         <h1>REGISTER</h1>
         <form method="post" action="">

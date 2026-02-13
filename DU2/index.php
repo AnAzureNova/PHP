@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Page</title>
 </head>
 <body>
     <?php
         session_start();
-        $_SESSION["id"] = 0;
         include "../DU2/comps/header.php";
-        include "../DU2/comps/staticdata.php";
+        include "../DU2/comps/staticdata.php"; //user class
+
+        //if currentuser is set and isLoggedIn is true (both from successful login) displays current username on main page
         if (isset($_SESSION["currentuser"]) && $_SESSION["isLoggedIn"] === 1) {
             $user = unserialize($_SESSION["currentuser"]);
             echo "<h3>Hello, ".$user->name."!</h3>";
         }
     ?>
+
+
     <section>
         <p>Temp</p>
         <a href="login.php">LOG-IN</a><br>
