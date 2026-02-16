@@ -15,7 +15,7 @@ class User {
 
 //default admin account
 $admin = new User();
-$admin->setUser("admin", "admin@mail.com", "admin123", "admin");
+$admin->setUser("admin", "admin@mail.com", "admin", "admin");
 $userString = "user.admin";
 $_SESSION[$userString] = serialize($admin);
 ?>

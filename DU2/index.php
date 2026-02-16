@@ -17,15 +17,8 @@
             echo "<h3>Hello, ".$user->name."!</h3>";
         }
     ?>
-
-
     <section>
         <p>Temp</p>
-        <a href="login.php">LOG-IN</a><br>
-        <a href="register.php">REGISTER</a><br><br>
-        <a href="logout.php">LOG-OUT</a>
-
-        <br><br><br>
         <hr>
         <h5>DEBUG</h5>
         <a href="../DU2/debug/logusrs.php">LOG REGISTERED USERS</a><br>
