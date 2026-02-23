@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include "../DU2/comps/staticdata.php"; //user class
 
     echo "<header>";
     echo "<div>LOGO</div><div>";
