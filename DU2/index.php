@@ -12,6 +12,7 @@
         session_start();
         include "../DU2/comps/header.php";
         include "../DU2/comps/staticdata.php"; //user class
+        include "../DU2/comps/database.php";
 
         //if currentuser is set and isLoggedIn is true (both from successful login) displays current username on main page
         if (isset($_SESSION["currentuser"]) && $_SESSION["isLoggedIn"] === 1) {
