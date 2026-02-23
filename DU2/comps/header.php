@@ -2,7 +2,7 @@
     session_start();
 
     echo "<header>";
-    echo "<div>LOGO</div><div>";
+    echo "<div class='logo'>LOGO</div><div class='logStat'>";
     if (isset($_SESSION["currentuser"]) && $_SESSION["isLoggedIn"] === 1){
         echo "<a href='logout.php'>LOG-OUT</a>";
     }

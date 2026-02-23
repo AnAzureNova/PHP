@@ -18,8 +18,10 @@
             $curruser = unserialize($_SESSION["currentuser"]);
             echo "<h3>Hello, ".$curruser->name."!</h3>";
         }
+        else{
+            echo "<h3>Please log in to access this site</h3>";
+        }
     ?>
-    <p>TEST</p>
     <section>
         <p>Temp</p>
         <hr>

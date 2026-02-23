@@ -1,6 +1,26 @@
 header{
     display: flex;
     flex-direction: row;
-    border: solid 1px red;
+    border-bottom: solid 1px white;
     justify-content: space-between;
+    color: white;
+    background-color: #000000;
+    padding: 0px 30px;
+    font-size: 1.5rem;
+}
+.logo{
+    padding: 20px;
+}
+.logStat{
+    display: flex;
+    gap: 10px;
+}
+header a{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 20px;
+}
+header a:hover{
+    scale: 110%;
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1) 300ms;
 }

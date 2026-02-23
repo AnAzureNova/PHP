@@ -2,3 +2,11 @@ body{
     padding: 0;
     margin: 0;
 }
+section{
+    padding: 20px;
+}
+h3{
+    padding: 20px;
+    font-size: 2.5rem;
+    margin: 0;
+}
