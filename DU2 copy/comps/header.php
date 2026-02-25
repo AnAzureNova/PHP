@@ -3,7 +3,7 @@
 
     echo "<header>";
     echo "<div class='logo'>LOGO</div><div class='logStat'>";
-    if ($_SESSION["isLoggedIn"] === 1 && isset($_SESSION["username"])) {
+    if (isset($_SESSION["currentuser"]) && $_SESSION["isLoggedIn"] === 1){
         echo "<a href='logout.php'>LOG-OUT</a>";
     }
     else{

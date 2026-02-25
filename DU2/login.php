@@ -8,35 +8,22 @@
 <body>
     <?php
     session_start();
-    include "../DU2/comps/staticdata.php"; //user class
+    include "../DU2/comps/database.php";
 
     //Check if user exists
-    function loginCheck($currUsr, $currPass): bool{
-        $userKey = "user.".$currUsr; //saves current username in session user format
-        if (isset($_SESSION[$userKey])) { //checks if the same user is in session
-            $user = unserialize($_SESSION[$userKey]);
-            if ($user->password === $currPass) { //grabs password and checks with the entered password
-                $_SESSION["isLoggedIn"] = 1;
-                $_SESSION["currentuser"] = $_SESSION[$userKey]; //saves the found user into currentuser
-                return true;
-            }
-            else{
-                echo "BAD SECRETS";
-                return false;
-            }
-        }
-        else{
-            echo "USR NOT FOUND";
-            return false;
-        }
-    }
 
     //On form submittion
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!empty($_POST["userLogin"]) && !empty($_POST["passwordLogin"])){ //check if all inputs have data - failsafe
-            $canLog = loginCheck($_POST["userLogin"], $_POST["passwordLogin"]);
-            if ($canLog){ //true if user exists in session and if the users password is correct
+            $username = loginAuth($_POST["userLogin"], $_POST["passwordLogin"]);
+            if ($username){ //true if user exists in session and if the users password is correct
+                $_SESSION["isLoggedIn"] = 1;
+                $_SESSION["username"] = $username;
                 header("Location: index.php");
+                exit();
+            }
+            else{
+                echo("Bad secrets");
             }
         }
     }

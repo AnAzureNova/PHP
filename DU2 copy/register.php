@@ -12,6 +12,11 @@
 
     //Register user
     function registerUser($currName, $currMail, $currPass): void{
+        //add new object
+        $user = new User();
+        $user->setUser($currName, $currMail, $currPass, "default");
+        $userString = "user.".$currName; //sys name format: user.namehere
+        $_SESSION[$userString] = serialize($user);
         $_SESSION["isLoggedIn"] = 0; //failsafe
         header("Location: index.php");
     }

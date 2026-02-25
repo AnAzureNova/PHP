@@ -11,12 +11,14 @@
     <?php
         session_start();
         include "../DU2/comps/header.php";
+        include "../DU2/comps/staticdata.php"; //user class
         include "../DU2/comps/database.php";
         echo "<section>";
         echo "<div>";
         //if currentuser is set and isLoggedIn is true (both from successful login) displays current username on main page
-        if ($_SESSION["isLoggedIn"] === 1 && isset($_SESSION["username"])) {
-            echo "<h3>Hello, ".$_SESSION["username"]."!</h3>";
+        if (isset($_SESSION["currentuser"]) && $_SESSION["isLoggedIn"] === 1) {
+            $curruser = unserialize($_SESSION["currentuser"]);
+            echo "<h3>Hello, ".$curruser->name."!</h3>";
         }
         else{
             echo "<h3>Please log in to access this site</h3>";

@@ -1,26 +1,13 @@
 <?php
     session_start();
-    include "../comps/staticdata.php"; //user class
-
+    include "../comps/database.php";
 
     echo "<h1>USER LOG</h1>";
     //check if logged in
-    if (isset($_SESSION["currentuser"]) && $_SESSION["isLoggedIn"] === 1){
-        //for each user in database
-        foreach ($_SESSION as $key => $value) {
-            //trim user. and search for key
-            if (strpos($key, "user.") === 0) {
-                $user = unserialize($value);
-                
-                //print out user data (alongside pass and perms when admin)
-                echo "<hr><strong>USER: ".$user->name."</strong><br>";
-                echo "Email: ".$user->email;
-                $currentuser = unserialize($_SESSION["currentuser"]);
-                if ($currentuser->perms === "admin"){
-                    echo "<br>Password: ".$user->password;
-                    echo "<br>Permissions: ".$user->perms;
-                }
-            }
+    if (isset($_SESSION["username"]) && $_SESSION["isLoggedIn"] === 1){
+        $users = getALL("userdata");
+        foreach($users as $user){
+            echo"<hr>".$user["id"]."<br>".$user["username"]."<br>".$user["usrpassword"]."<br>".$user["email"]."<hr>";
         }
     }
     else{
