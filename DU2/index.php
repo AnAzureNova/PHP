@@ -10,8 +10,8 @@
 <body>
     <?php
         session_start();
-        include "../DU2/comps/header.php";
         include "../DU2/comps/database.php";
+        include "../DU2/comps/header.php";
         echo "<section>";
         echo "<div>";
         //if currentuser is set and isLoggedIn is true (both from successful login) displays current username on main page

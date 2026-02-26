@@ -49,9 +49,9 @@
         echo "<br>Failed";
         return false;
     }
-    function getbyUsername($table, $username): mixed{
+    function getbyUsername($username): mixed{
         global $db;
-        $sql = "SELECT * FROM $table WHERE username = :username";
+        $sql = "SELECT * FROM userdata WHERE username = :username";
         $stmt = $db->prepare($sql);
         $stmt->execute(['username'=>$username]);
 
