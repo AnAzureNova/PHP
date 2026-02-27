@@ -10,8 +10,6 @@
     session_start();
     include "../DU2/comps/database.php";
 
-    //Check if user exists
-
     //On form submittion
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!empty($_POST["userLogin"]) && !empty($_POST["passwordLogin"])){ //check if all inputs have data - failsafe
@@ -41,5 +39,7 @@
             <button type="submit">LOGIN</button>
         </form>
     </div>
+    <br>
+    <a href="/DU2/index.php">Back</a>
 </body>
 </html>

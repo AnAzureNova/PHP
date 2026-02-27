@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "../comps/database.php";
+    include "../DU2/comps/database.php";
 
     echo "<h1>USER LOG</h1>";
     //check if logged in
@@ -26,4 +26,4 @@
 
 <hr>
 <br><br>
-<a href="../index.php">Back</a>
+<a href="/DU2/index.php">Back</a>

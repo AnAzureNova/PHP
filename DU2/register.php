@@ -10,9 +10,6 @@
     session_start();
     include "../DU2/comps/database.php";
 
-    //Register user
-
-
     //On form submittion
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!empty($_POST["usernameRegister"]) && !empty($_POST["emailRegister"]) && !empty($_POST["passwordRegister"]) && !empty($_POST["passwordRetype"])){ //check if all inputs have data - failsafe
@@ -68,5 +65,7 @@
             <button type="submit">REGISTER ACCOUNT</button>
         </form>
     </div>
+    <br>
+    <a href="/DU2/index.php">Back</a>
 </body>
 </html>
