@@ -21,7 +21,8 @@
         else{
             echo "<h3>Please log in to access this site</h3>";
         }
-        echo "</div>"
+        echo "</div>";
+        #include "../DU2/debug/logusrs.php"; //debug remove later
     ?>
     <div>
         <p>Temp</p>

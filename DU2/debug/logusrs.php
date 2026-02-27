@@ -22,8 +22,6 @@
         echo "<strong>PERMISSION DENIED:</strong> Not logged in";
     }
 ?>
-
-
 <hr>
 <br><br>
 <a href="/DU2/index.php">Back</a>
