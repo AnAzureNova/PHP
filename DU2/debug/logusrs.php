@@ -9,12 +9,12 @@
         $users = getALL("userdata");
         foreach($users as $user){
             if($loggedUser["permissions"] === "admin"){
-                #echo "<img src='".$user["profileimg"]."' alt='pfp'";
-                echo"<hr>ID: ".$user["id"]."<br>USERNAME: ".$user["username"]."<br>PASSWORD: ".$user["usrpassword"]."<br>EMAIL: ".$user["email"]."<br>PERMISSIONS: ".$user["permissions"]."<hr>";
+                echo"<hr><img style='width: 50px; heigth = 50px;' src='".$user["profileimg"]."' alt='pfp'<br>";
+                echo"<br>ID: ".$user["id"]."<br>USERNAME: ".$user["username"]."<br>PASSWORD: ".$user["usrpassword"]."<br>EMAIL: ".$user["email"]."<br>PERMISSIONS: ".$user["permissions"];
             }
             else{
-                #echo "<img src='".$user["profileimg"]."' alt='pfp'";
-            echo"<hr>ID: ".$user["id"]."<br>USERNAME: ".$user["username"]."<br>EMAIL: ".$user["email"]."<hr>";
+                echo"<hr><img style='width: 50px; heigth = 50px;' src='".$user["profileimg"]."' alt='pfp'<br>";
+                echo"<br>ID: ".$user["id"]."<br>USERNAME: ".$user["username"]."<br>EMAIL: ".$user["email"];
             }
         }
     }

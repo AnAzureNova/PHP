@@ -8,20 +8,24 @@
 <body>
     <?php
     session_start();
-    include "../DU2/comps/staticdata.php"; //user class
+    include "../DU2/comps/database.php";
 
     //Register user
-    function registerUser($currName, $currMail, $currPass): void{
-        $_SESSION["isLoggedIn"] = 0; //failsafe
-        header("Location: index.php");
-    }
+
 
     //On form submittion
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!empty($_POST["usernameRegister"]) && !empty($_POST["emailRegister"]) && !empty($_POST["passwordRegister"]) && !empty($_POST["passwordRetype"])){ //check if all inputs have data - failsafe
             if ($_POST["passwordRegister"] === $_POST["passwordRetype"]){ //check passwords
                 //Register user
-                registerUser($_POST["usernameRegister"], $_POST["emailRegister"], $_POST["passwordRegister"]);
+                if (register($_POST["usernameRegister"], $_POST["emailRegister"], $_POST["passwordRegister"])){
+                    $_SESSION["isLoggedIn"] = 0;
+                    header("Location: index.php");
+                    exit();
+                }
+                else{
+                    echo "REGISTRATION FAILED: Something went wrong";
+                }
             }
             else{
                 echo "BAD SECRETS: Passwords dont match";

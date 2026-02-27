@@ -36,17 +36,17 @@
         $stmt->execute([':username' => $usr]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        echo "<br>CURR: ".$pass;
-        echo "<br>REG: ".$result['usrpassword'];
+        #echo "<br>CURR: ".$pass;
+        #echo "<br>REG: ".$result['usrpassword'];
         if ($result) {
             $passcheck = $result['usrpassword'];
-            echo "<br>Checking";
+            #echo "<br>Checking";
             if ($pass === $passcheck) {
                 echo "<br>Verified";
                 return $result['username'];
             }
         }
-        echo "<br>Failed";
+        echo "<br>Failed<br>";
         return false;
     }
     function getbyUsername($username): mixed{
@@ -56,5 +56,13 @@
         $stmt->execute(['username'=>$username]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    function register($username, $email, $password): bool {
+        global $db;
+        $sql = "INSERT INTO userdata (username, email, usrpassword, profileimg, permissions) 
+                VALUES (:username, :email, :password, '/DU2/res/defaultuser.png', 'user')";
+        $stmt = $db->prepare($sql);
+
+        return $stmt->execute([':username'=>$username,':password'=>$password,':email'=>$email]);
     }
 ?>
