@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "../DU2/comps/database.php";
+    include "../comps/database.php";
 
     echo "<h1>USER LOG</h1>";
     //check if logged in
