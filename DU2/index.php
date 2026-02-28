@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../DU2/comps/header.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../DU2/style/header.css">
+    <link rel="stylesheet" href="../DU2/style/profile.css">
+    <link rel="stylesheet" href="../DU2/style/main.css">
     <title>Main Page</title>
 </head>
 <body>
@@ -16,21 +17,23 @@
         echo "<div>";
         //if currentuser is set and isLoggedIn is true (both from successful login) displays current username on main page
         if ($_SESSION["isLoggedIn"] === 1 && isset($_SESSION["username"])) {
-            echo "<h3>Hello, ".$_SESSION["username"]."!</h3>";
+            $page = $_GET["page"] ?? "home";
+            switch ($page) {
+                case "profile":
+                    include "../DU2/comps/profile.php";
+                    break;
+                case "logusrs":
+                    include "../DU2/comps/logusrs.php";
+                    break;
+                default:
+                    include "../DU2/comps/home.php";
+                    break;
+            }
         }
         else{
             echo "<h3>Please log in to access this site</h3>";
         }
-        echo "</div>";
-        #include "../DU2/debug/logusrs.php"; //debug remove later
+        echo "</section>";
     ?>
-    <div>
-        <p>Temp</p>
-        <hr>
-        <h5>DEBUG</h5>
-        <a href="../DU2/debug/logusrs.php">LOG REGISTERED USERS</a><br>
-        <a href="../DU2/debug/clrdata.php">CLEAR SESSION</a>
-    </div>
-    </section>
 </body>
 </html>

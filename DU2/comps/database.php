@@ -57,6 +57,13 @@
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    function delbyUsername($username): bool {
+        global $db;
+        $sql = "DELETE FROM userdata WHERE username = :username";
+        $stmt = $db->prepare($sql);
+
+        return $stmt->execute([':username' => $username]);
+    }
     function register($username, $email, $password): bool {
         global $db;
         $sql = "INSERT INTO userdata (username, email, usrpassword, profileimg, permissions) 
@@ -64,5 +71,12 @@
         $stmt = $db->prepare($sql);
 
         return $stmt->execute([':username'=>$username,':password'=>$password,':email'=>$email]);
+    }
+    function editUser($username, $column, $replacement): bool {
+        global $db;
+        $sql = "UPDATE userdata SET $column = :replacement WHERE username = :username";
+        $stmt = $db->prepare($sql);
+
+        return $stmt->execute([':replacement'=>$replacement,':username'=>$username]);
     }
 ?>

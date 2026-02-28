@@ -24,7 +24,6 @@
                     $isMailInDB = true;
                 }
             }
-
             if ($isUsrInDB){
                 echo "REGISTRATION FAILED: Username already taken";
             }
@@ -50,7 +49,6 @@
         }
     }
     ?>
-
     <div>
         <h1>REGISTER</h1>
         <form method="post" action="">
