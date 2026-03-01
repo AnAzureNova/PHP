@@ -6,7 +6,7 @@
     try {
         $db = new PDO($dsn, $username, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        #echo "Success";
+        //echo "Success";
     }
     catch (PDOException $e){
         echo "Unable to connect DB: ". $e->getMessage();
@@ -36,11 +36,11 @@
         $stmt->execute([':username' => $usr]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        #echo "<br>CURR: ".$pass;
-        #echo "<br>REG: ".$result['usrpassword'];
+        //echo "<br>CURR: ".$pass;
+        //echo "<br>REG: ".$result['usrpassword'];
         if ($result) {
             $passcheck = $result['usrpassword'];
-            #echo "<br>Checking";
+            //echo "<br>Checking";
             if ($pass === $passcheck) {
                 echo "<br>Verified";
                 return $result['username'];

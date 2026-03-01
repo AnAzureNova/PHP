@@ -7,24 +7,24 @@
 </head>
 <body>
     <?php
-    session_start();
-    include "../DU2/comps/database.php";
+        session_start();
+        include "../DU2/comps/database.php";
 
-    //On form submittion
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (!empty($_POST["userLogin"]) && !empty($_POST["passwordLogin"])){ //check if all inputs have data - failsafe
-            $username = loginAuth($_POST["userLogin"], $_POST["passwordLogin"]);
-            if ($username){ //true if user exists in session and if the users password is correct
-                $_SESSION["isLoggedIn"] = 1;
-                $_SESSION["username"] = $username;
-                header("Location: index.php");
-                exit();
-            }
-            else{
-                echo("Bad secrets");
+        //On form submittion
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if (!empty($_POST["userLogin"]) && !empty($_POST["passwordLogin"])){ //check if all inputs have data - failsafe
+                $username = loginAuth($_POST["userLogin"], $_POST["passwordLogin"]);
+                if ($username){ //true if user exists in session and if the users password is correct
+                    $_SESSION["isLoggedIn"] = 1;
+                    $_SESSION["username"] = $username;
+                    header("Location: index.php");
+                    exit();
+                }
+                else{
+                    echo("Bad secrets");
+                }
             }
         }
-    }
     ?>
     <div>
         <h1>LOGIN</h1>

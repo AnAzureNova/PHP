@@ -7,6 +7,8 @@ body{
     /*font-family: Linefont;*/
     padding: 0;
     margin: 0;
+    background-color: #252525;
+    color: #fff;
 }
 section{
     height: 85vh;
@@ -16,7 +18,44 @@ section{
     flex-direction: column;
     justify-content: space-between;
 }
+h1{
+    font-size: 4rem;
+    margin: 0;
+}
 h3{
     font-size: 2.5rem;
     margin: 0;
+}
+button{
+    cursor: pointer;
+    font-family: Atkinson Hyperlegible Mono;
+    background-color: #3f3f3f;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px 30px;
+    margin: 50px;
+}
+button:hover{
+    background-color: #535353;
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1) 100ms;
+}
+hr{
+    background-color: white;
+    padding: 1px;
+    margin: 20px 0;
+}
+input, select{
+    font-family: Atkinson Hyperlegible Mono;
+    background-color: #3f3f3f;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 0 30px;
+}
+#errText{
+    color:#ffa8a8;
+}
+#crrText{
+    color:#cbffa8;
 }

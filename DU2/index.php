@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../DU2/style/header.css">
     <link rel="stylesheet" href="../DU2/style/profile.css">
     <link rel="stylesheet" href="../DU2/style/main.css">
+    <link rel="stylesheet" href="../DU2/style/userlog.css">
     <title>Main Page</title>
 </head>
 <body>
@@ -15,8 +16,9 @@
         include "../DU2/comps/header.php";
         echo "<section>";
         echo "<div>";
-        //if currentuser is set and isLoggedIn is true (both from successful login) displays current username on main page
+        //if logged in
         if ($_SESSION["isLoggedIn"] === 1 && isset($_SESSION["username"])) {
+            //switch comps using get page
             $page = $_GET["page"] ?? "home";
             switch ($page) {
                 case "profile":
