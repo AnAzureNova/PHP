@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../DU2/style/form.css">
     <title>REGISTER</title>
 </head>
 <body>
@@ -59,11 +60,10 @@
             <h3>PASSWORD</h3>
             <input type="password" placeholder="Enter a strong password" id="passwordRegister" name="passwordRegister" required>
             <h3>RE-ENTER PASSWORD</h3>
-            <input type="password" placeholder="Re-enter password" id="passwordRetype" name="passwordRetype" required>
+            <input type="password" placeholder="Re-enter password" id="passwordRetype" name="passwordRetype" required><br>
             <button type="submit">REGISTER ACCOUNT</button>
         </form>
+        <a href="/DU2/index.php">Back</a>
     </div>
-    <br>
-    <a href="/DU2/index.php">Back</a>
 </body>
 </html>

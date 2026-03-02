@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../DU2/style/form.css">
     <title>LOGIN</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
                     exit();
                 }
                 else{
-                    echo("Bad secrets");
+                    echo "<p id='errText'>Bad secrets</p>";
                 }
             }
         }
@@ -32,12 +33,10 @@
             <h3>USERNAME</h3>
             <input type="text" placeholder="Enter your username" id="userLogin" name="userLogin" required>
             <h3>PASSWORD</h3>
-            <input type="password" placeholder="Enter your password" id="passwordLogin" name="passwordLogin" required>
-
-            <button type="submit">LOGIN</button>
+            <input type="password" placeholder="Enter your password" id="passwordLogin" name="passwordLogin" required><br>
+            <button type="submit">LOGIN</button><br>
+            <a href="/DU2/index.php">Back</a>
         </form>
     </div>
-    <br>
-    <a href="/DU2/index.php">Back</a>
 </body>
 </html>
