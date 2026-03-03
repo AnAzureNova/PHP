@@ -3,25 +3,18 @@
         $loggedUser = getbyUsername($_SESSION["username"]);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $newUsername = trim($_POST["username"]);
-            $newEmail = trim($_POST["email"]);
-            $newPassword = trim($_POST["password"]);
-            $newProfileimg = trim($_POST["profileimg"]);
-
-            if (!empty($newUsername)){
-                editUser($loggedUser["username"], "username", $newUsername);
+            if (!empty(trim($_POST["password"]))){
+                editUser($loggedUser["username"], "usrpassword", trim($_POST["password"]));
             }
-            if (!empty($newEmail)){
-                editUser($loggedUser["username"], "email", $newEmail);
+            if (!empty(trim($_POST["email"]))){
+                editUser($loggedUser["username"], "email", trim($_POST["email"]));
             }
-            if (!empty($newPassword)){
-                editUser($loggedUser["username"], "usrpassword", $newPassword);
+            if (!empty(trim($_POST["profileimg"]))){
+                editUser($loggedUser["username"], "profileimg", trim($_POST["profileimg"]));
             }
-            if (!empty($newProfileimg)){
-                editUser($loggedUser["username"], "profileimg", $newProfileimg);
-            }
-            if (!empty($newUsername)){
-                $_SESSION["username"] = $newUsername;
+            if (!empty(trim($_POST["username"]))){
+                editUser($loggedUser["username"], "username", trim($_POST["username"]));
+                $_SESSION["username"] = trim($_POST["username"]);
             }
             $loggedUser = getbyUsername($_SESSION["username"]);
             echo "<p id='crrText'><strong>Changes saved</strong></p>";
