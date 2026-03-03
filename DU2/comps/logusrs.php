@@ -16,7 +16,7 @@
 
         //edit / del user
         if ($loggedUser["permissions"] === "admin" && $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["editUser"])) {
-            //var_dump($_POST);
+            //                                                      var_dump($_POST);
             $targetUsr = $_POST["editUser"];
 
             if (!empty(trim($_POST["usrpassword"]))){

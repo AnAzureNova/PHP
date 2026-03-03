@@ -51,9 +51,9 @@
                 <input type='text' name='email' value='".$loggedUser["email"]."'><br>
                 <label>Password</label>
                 <input type='password' name='password' placeholder='".str_repeat("*", strlen($loggedUser["usrpassword"]))."'><br>
-                <br><button type='submit'>SAVE CHANGES</button>
-            </form><br>";
-        echo "<a href='/DU2/logout.php'>LOG-OUT</a></div>";
+                <button type='submit'>SAVE CHANGES</button>
+            </form>";
+        echo "<a id='linkToButton' href='/DU2/logout.php'>LOG-OUT</a></div>";
         if ($loggedUser["permissions"] != "admin"){
             echo "<div><h1>Account deletion</h1><hr><p>Please re-enter your current password to confirm account deletion</p><br>";
             echo "<form method='POST'>

@@ -63,7 +63,7 @@
             <input type="password" placeholder="Re-enter password" id="passwordRetype" name="passwordRetype" required><br>
             <button type="submit">REGISTER ACCOUNT</button>
         </form>
-        <a href="/DU2/index.php">Back</a>
+        <a id="linkToButton" href="/DU2/index.php">BACK</a>
     </div>
 </body>
 </html>

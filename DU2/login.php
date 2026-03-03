@@ -35,7 +35,7 @@
             <h3>PASSWORD</h3>
             <input type="password" placeholder="Enter your password" id="passwordLogin" name="passwordLogin" required><br>
             <button type="submit">LOGIN</button><br>
-            <a href="/DU2/index.php">Back</a>
+            <a id="linkToButton" href="/DU2/index.php">BACK</a>
         </form>
     </div>
 </body>
