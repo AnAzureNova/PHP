@@ -27,7 +27,6 @@
             createFile(True, $directory, "file", "test");
         }
         else{
-
             createFile(False, $directory, $_POST["createnm"], "temp");
         }
 
