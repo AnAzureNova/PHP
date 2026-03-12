@@ -24,10 +24,10 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["create"])){
         if (empty($_POST["createnm"])){
-            createFile(True, $directory, "file", "test");
+            createFile(True, $directory, "file", $_POST["creatects"]);
         }
         else{
-            createFile(False, $directory, $_POST["createnm"], "temp");
+            createFile(False, $directory, $_POST["createnm"], $_POST["creatects"]);
         }
 
         header("Location: " . $_SERVER['PHP_SELF']);
@@ -38,7 +38,8 @@
     <h1>CREATE FILES</h1>
     <form method="post" action="">
         <input type='hidden' name='create' value='create'>
-        <input type='text' name='createnm'>
+        <input type='text' placeholder="FILENAME" name='createnm'>
+        <input type="text" placeholder="FILECONTENTS" name="creatects" required>
         <button type="submit">SEND</button>
     </form>
 </div>
