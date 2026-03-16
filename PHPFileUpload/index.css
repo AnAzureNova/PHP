@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+    background-color: #242424;
+    color: #fff;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 80px;
+    gap: 20px;
+}
+button{
+    width: 10%;
+    margin: 10px 0;
+    background-color: #252525;
+    border: none;
+    color: white;
+    padding: 7px 30px;
+    cursor: pointer;
+}
+input, textarea{
+    margin: 10px 0;
+    background-color: #303030;
+    border: none;
+    color: white;
+    padding: 7px 30px;
+}
+textarea{
+    height: 300px;
+}
+button:hover{
+    background-color: #161616;
+}
+section form{
+    display: flex;
+    flex-direction: column;
+    background-color: #353535;
+    padding: 20px 50px;
+}
+form div{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+h1{
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+}
+h3, h4{
+    font-size: 1.7rem;
+    margin: 0;
+    padding: 0;
+}
+#fileicon{
+    width: 35px;
+    height: 35px;
+}
