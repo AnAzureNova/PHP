@@ -41,11 +41,12 @@ section form{
     flex-direction: column;
     background-color: #353535;
     padding: 20px 50px;
+    gap: 0;
 }
 form div{
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
     margin-bottom: 10px;
 }
 h1{
@@ -61,4 +62,12 @@ h3, h4{
 #fileicon{
     width: 35px;
     height: 35px;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+i{
+    margin-bottom: 10px;
+    color: #888888;
 }

@@ -81,11 +81,26 @@
             foreach ($files as $filepath){
                 $filename = basename($filepath); //only file, no path
 
+                $chars = strlen(trim(file_get_contents($filepath)));
+                $words = preg_split("/[\s\n]+/", file_get_contents($filepath));
+                $lines = preg_split("/\r\n|\n|\r/", file_get_contents($filepath));
+
                 echo "<form method='post' action='#".$filename."header'>";
                 echo "<div>";
                 echo "<img id='fileicon' src='res/text-format.png'>";
                 echo "<h4>".$filename."</h4>";
+                if (filesize($filepath) != 1){
+                    echo "<p>".filesize($filepath)." Bytes</p>";
+                }
+                else{
+                    echo "<p>".filesize($filepath)." Byte</p>";
+                }
+                echo "</div><div>";
+                echo "<p>Chars: ".$chars."</p>";
+                echo "<p>Words: ".count($words)."</p>";
+                echo "<p>Lines: ".count($lines)."</p>";
                 echo "</div>";
+                echo "<i>Last modified: ".date("F d H:i:s", filemtime($filepath))."</i>";
                 echo "<input type='hidden' name='cache' value='".$filename."'>";
                 echo "<button type='submit'>EDIT</button>";
                 echo "</form>";
