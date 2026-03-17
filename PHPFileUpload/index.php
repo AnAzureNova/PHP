@@ -88,7 +88,7 @@
                 echo "<form method='post' action='#".$filename."header'>";
                 echo "<div>";
                 echo "<img id='fileicon' src='res/text-format.png'>";
-                echo "<h4>".$filename."</h4>";
+                echo "<h4 id='".$filename."fullheader'>".$filename."</h4>";
                 if (filesize($filepath) != 1){
                     echo "<p>".filesize($filepath)." Bytes</p>";
                 }
@@ -109,7 +109,7 @@
                     $contents = file_get_contents($filepath);
 
                     echo "<h4 id='".$filename."header'>Editing ".$filename."...</h4>";
-                    echo "<form method='post' action='' id='".$filename."'>";
+                    echo "<form method='post' action='#".$filename."fullheader' id='".$filename."'>";
                     echo "<input type='hidden' name='editcache' value='".$filename."'>";
                     echo "<textarea name='editcts' required>".$contents."</textarea>";
                     echo "<button type='submit'>SAVE</button>";
