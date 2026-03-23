@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../TextEditorSystem/style/profile.css">
     <link rel="stylesheet" href="../TextEditorSystem/style/main.css">
     <link rel="stylesheet" href="../TextEditorSystem/style/userlog.css">
+    <link rel="stylesheet" href="../TextEditorSystem/style/textediting.css">
     <title>Main Page</title>
 </head>
 <body>

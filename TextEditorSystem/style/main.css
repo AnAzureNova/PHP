@@ -45,7 +45,7 @@ hr{
     padding: 1px;
     margin: 20px 0;
 }
-input, select{
+input, select, textarea{
     font-family: Atkinson Hyperlegible Mono;
     background-color: #3f3f3f;
     border: none;

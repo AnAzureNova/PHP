@@ -82,23 +82,24 @@
 
     function uploadFile($filename, $extension, $author, $contents, $visibility): bool {
         global $db;
-        $sql = "INSERT INTO files (file_name, extension, author_username, file_contents, visibility) 
-                VALUES (:file_name, :extension, :author_username, :file_contents, :visibility)";
+        $sql = "INSERT INTO files (file_name, extension, author_username, file_contents, visibility, create_time) 
+                VALUES (:file_name, :extension, :author_username, :file_contents, :visibility, NOW())";
         $stmt = $db->prepare($sql);
         
-        $result = $stmt->execute([
-            ':file_name'        => $filename,
-            ':extension'        => $extension,
-            ':author_username'  => $author,
-            ':file_contents'    => $contents,
-            ':visibility'       => $visibility
-        ]);
+        $result = $stmt->execute([':file_name' => $filename, ':extension' => $extension, ':author_username'  => $author, ':file_contents' => $contents, ':visibility' => $visibility]);
 
         if(!$result){
-            // This will tell you exactly what MySQL rejected
             throw new Exception("PDO execute failed: " . implode(", ", $stmt->errorInfo()));
         }
-
         return $result;
+    }
+
+    function getFiles($username): mixed {
+        global $db;
+        $sql = "SELECT * FROM files WHERE author_username = :username";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':username' => $username]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 ?>

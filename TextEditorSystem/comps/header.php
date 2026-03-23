@@ -1,7 +1,7 @@
 <?php
     session_start();
     echo "<header>";
-    echo "<div class='navbar'><a href='/TextEditorSystem/index.php'>HOME</a><a href='/TextEditorSystem/index.php?page=create'>CREATE FILE</a><a href='/TextEditorSystem/index.php?page=editor'>TEXT EDITOR</a><a href='/TextEditorSystem/index.php?page=logusrs'>LOG USERS</a></div><div class='logStat'>";
+    echo "<div class='navbar'><a href='/TextEditorSystem/index.php'>HOME</a><a href='/TextEditorSystem/index.php?page=create'>CREATE FILE</a><a href='/TextEditorSystem/index.php?page=editor'>MY FILES</a><a href='/TextEditorSystem/index.php?page=logusrs'>VIEW USERS</a></div><div class='logStat'>";
     if ($_SESSION["isLoggedIn"] === 1 && isset($_SESSION["username"])) {
         echo "<a href='/TextEditorSystem/index.php?page=profile'>PROFILE</a>";
         $usr = getbyUsername($_SESSION["username"]);

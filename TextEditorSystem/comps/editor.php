@@ -1,12 +1,41 @@
 <?php
-    echo "<h1>ALL CREATED FILES</h1>";
-    echo "<h3>TOTAL FILES: ".$amount."</h3><br>";
+    $loggedUser = getbyUsername($_SESSION["username"]); //get current user
+    $files = getFiles($loggedUser["username"]);
+
+    $amount = count($files);
+
+    echo "<h3>".$loggedUser["username"]."'s FILES</h3>";
+    echo "<p>Total files: ".$amount."</h3><p>";
+
+    echo "<section class='filegrid_section'>";
+    foreach($files as $file){
+        $chars = strlen(trim($file["file_contents"]));
+        $words = preg_split("/[\s\n]+/", $file["file_contents"]);
+        $lines = preg_split("/\r\n|\n|\r/", $file["file_contents"]);
+
+        echo "<div>";
+        echo "<h4 class='file_title'>".$file["file_name"].".".$file["extension"]."</h4>";
+        echo "<p id='fileStats'>".ucfirst($file["visibility"])."<br>Chars: ".$chars." Words: ".count($words)." Lines: ".count($lines)."</p>";
+        echo "<div class='text_preview'>";
+        echo "<pre>".htmlspecialchars($file["file_contents"])."</pre>";
+        echo "</div>";
+        echo "<div class='file_buttons'>";
+        echo "<button>⤓</button>";
+        echo "<button>✎</button>";
+        echo "<button>🗑</button>";
+        echo "</div>";
+        echo "</div>";
+    }
+    echo "</section>";
+
+
+
+
 
     //each file writeout
-    foreach ($files as $filepath){
-        $loggedUser = getbyUsername($_SESSION["username"]); //get current user
+    /*foreach ($files as $filepath){
 
-        /*$chars = strlen(trim(file_get_contents($filepath)));
+        $chars = strlen(trim(file_get_contents($filepath)));
         $words = preg_split("/[\s\n]+/", file_get_contents($filepath));
         $lines = preg_split("/\r\n|\n|\r/", file_get_contents($filepath));
 
@@ -39,6 +68,6 @@
             echo "<textarea name='editcts' required>".$contents."</textarea>";
             echo "<button type='submit'>SAVE</button>";
             echo "</form>";
-        }*/
-    }
+        }
+    }*/
 ?>
