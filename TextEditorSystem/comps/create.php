@@ -34,6 +34,7 @@
             <select id='createvis' name='createvis' required>
                 <option value="private">Private</option>
                 <option value="public">Public</option>
+                <option value="unlisted">Unlisted</option>
             </select><br>
         </div>
         <textarea name="creatects" placeholder="FILECONTENTS" required></textarea><br>

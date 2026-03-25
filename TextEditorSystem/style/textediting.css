@@ -1,5 +1,5 @@
 textarea{
-    width: 600px;
+    width:80vw;
     height: 450px;
     margin: 20px 0 0 0;
     padding: 20px;
@@ -66,15 +66,21 @@ div pre {
 .file_buttons button{ 
     font-size: 1.1rem;
     margin: 0;
-    padding: 5px 20px;
+    padding: 5px 10px;
 }
-#fileStats{
+#fileStats, #fileStatsCrTime{
     margin: 0 0 20px 0;
     padding: 0;
     font-size: 0.7rem;
 }
-#fileStatsCrTime{
-    margin: 0 0 10px 0;
-    padding: 0;
-    font-size: 0.7rem;
+#textFullDisplay{
+    color: #fff;
+    font-size: 1rem;
+    font-family: monospace;
+    margin: 20px 0;
+}
+#disabledButton{
+    pointer-events: none;
+    background-color: #363636;
+    color: #838383;
 }

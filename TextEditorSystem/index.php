@@ -37,6 +37,9 @@
                 case "library":
                     include "../TextEditorSystem/comps/library.php";
                     break;
+                case "fileview":
+                    include "../TextEditorSystem/comps/filedisplay.php";
+                    break;
                 default:
                     include "../TextEditorSystem/comps/home.php";
                     break;

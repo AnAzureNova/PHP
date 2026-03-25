@@ -2,10 +2,20 @@
     session_start();
     echo "<header>";
     if ($_SESSION["isLoggedIn"] === 1 && isset($_SESSION["username"])){
+        $loggedUser = getbyUsername($_SESSION["username"]);
+
         echo "<div class='navbar'>";
         echo "<a href='/TextEditorSystem/index.php'>HOME</a>";
         echo "<a href='/TextEditorSystem/index.php?page=library'>LIBRARY</a>";
-        echo "<a href='/TextEditorSystem/index.php?page=logusrs'>VIEW USERS</a>";
+        if ($loggedUser["permissions"] == "admin"){
+            echo "<a href='/TextEditorSystem/index.php?page=logusrs'>VIEW USERS</a>";
+        }
+        echo "</div>";
+        echo "<div class='logStat'>";
+    }
+    else{
+        echo "<div class='navbar'>";
+        echo "<a href='/TextEditorSystem/index.php'>HOME</a>";
         echo "</div>";
         echo "<div class='logStat'>";
     }

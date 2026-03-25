@@ -127,4 +127,28 @@
 
         return $stmt->execute([':filename' => $filename, ':authorusername' => $username]);
     }
+    function getFile($filename): mixed{
+        global $db;
+        $sql = "SELECT * FROM files WHERE file_name = :filename";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':filename' => $filename]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    function getFileByName($username, $filename): mixed{
+        global $db;
+        $sql = "SELECT * FROM files WHERE author_username = :authorusername AND file_name = :filename";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':authorusername'=>$username, ':filename' => $filename]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    function getPublicFileByName($filename): mixed {
+        global $db;
+        $sql = "SELECT * FROM files WHERE file_name = :filename AND visibility = 'public'";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':filename' => $filename]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 ?>

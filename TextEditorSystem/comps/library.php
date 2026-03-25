@@ -3,12 +3,6 @@
     $files = getAllFiles(true, "id DESC");
     $amount = count($files);
 
-    /*if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["delcache"])){
-        delFile($loggedUser["username"], $_POST["delcache"]);
-        header("Location: index.php?page=editor");
-        exit();
-    }*/
-
     echo "<h3>PUBLIC FILE LIBRARY</h3>";
     echo "<p>Total files: ".$amount."</h3><p>";
 
@@ -26,8 +20,8 @@
         echo "</div>";
         echo "<p id='fileStatsCrTime'> Created: ".$file["create_time"]."</p>";
         echo "<div class='file_buttons'>";
-        echo "<button>👁</button>";
-        echo "<button>⤓</button>";
+        echo "<a href='index.php?page=fileview&view=".urlencode($file["file_name"])."&from=library'><button>👁</button></a>";
+        echo "<a href='download.php?file=".urlencode($file["file_name"])."'><button>⤓</button></a>";
         echo "</div>";
         echo "</div>";
     }
