@@ -93,13 +93,38 @@
         }
         return $result;
     }
+    function getAllFiles($public = false, $orderBy = null): array {
+        global $db;
+        if($public){
+            $sql = "SELECT * FROM files WHERE visibility = 'public'";
+        } 
+        else {
+            $sql = "SELECT * FROM files";
+        }
+        if ($orderBy){
+            $sql.=" ORDER BY $orderBy";
+        }
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
 
-    function getFiles($username): mixed {
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    function getFiles($username, $orderBy = null): mixed {
         global $db;
         $sql = "SELECT * FROM files WHERE author_username = :username";
+        if ($orderBy){
+            $sql.=" ORDER BY $orderBy";
+        }
         $stmt = $db->prepare($sql);
         $stmt->execute([':username' => $username]);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    function delFile($username, $filename): bool {
+        global $db;
+        $sql = "DELETE FROM files WHERE file_name = :filename AND author_username = :authorusername";
+        $stmt = $db->prepare($sql);
+
+        return $stmt->execute([':filename' => $filename, ':authorusername' => $username]);
     }
 ?>

@@ -31,8 +31,11 @@
                 case "editor":
                     include "../TextEditorSystem/comps/editor.php";
                     break;
-                 case "create":
+                case "create":
                     include "../TextEditorSystem/comps/create.php";
+                    break;
+                case "library":
+                    include "../TextEditorSystem/comps/library.php";
                     break;
                 default:
                     include "../TextEditorSystem/comps/home.php";

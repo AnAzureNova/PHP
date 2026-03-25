@@ -6,7 +6,7 @@
             $result = uploadFile($_POST["createnm"], $_POST["createext"], $loggedUser["username"], $_POST["creatects"], $_POST["createvis"]);
             
             if($result){
-                header("Location: ".$_SERVER['PHP_SELF']);
+                header("Location: index.php?page=editor");
                 exit();
             }
             else{
