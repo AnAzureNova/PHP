@@ -7,7 +7,6 @@
             $displayedFile = getPublicFileByName($_GET["view"]);
         }
     }
-        
 
     $from = isset($_GET["from"]) ? $_GET["from"] : "editor";
 

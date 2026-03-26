@@ -21,7 +21,6 @@
         exit();
     }
 
-
     echo "<h3>".$loggedUser["username"]."'s FILES</h3>";
     echo "<p>Total files: ".$amount."</h3><p>";
 

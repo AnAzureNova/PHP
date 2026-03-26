@@ -18,7 +18,6 @@
             exit();
         }
     }
-    // fallback
     header("Location: index.php?page=editor");
     exit();
 ?>
