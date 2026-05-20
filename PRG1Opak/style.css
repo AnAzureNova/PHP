@@ -1,0 +1,19 @@
+table, td, tr{
+    border: 2px solid #fff;
+    border-collapse: collapse;
+}
+td{
+    padding: 10px;
+}
+.odd{
+    background-color: black;
+    color: green;
+}
+.even{
+    background-color: green;
+    color: black;
+}
+.empty{
+    background-color: #353535;
+    color: black;
+}
